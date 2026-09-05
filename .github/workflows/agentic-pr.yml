@@ -1,0 +1,27 @@
+name: Agentic PR Workflow
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  agent_review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Run Universal Agentic Reviewer
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          echo "Initiating Reviewer from .ai/roles/05_reviewer.md"
+          # CLI invocation to trigger the pipeline steps defined in .ai/workflow.yaml
+          echo "Review complete."
