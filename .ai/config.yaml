@@ -1,0 +1,10 @@
+# Universal Agentic Framework Configuration
+project_name: AgenticDevTeam
+stack:
+  language: typescript
+  framework: nextjs
+  database: postgresql
+tools_enabled:
+  - memory
+  - rag
+  - code_execution

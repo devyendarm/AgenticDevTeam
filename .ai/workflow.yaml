@@ -1,0 +1,22 @@
+# 8-step pipeline graph
+pipeline:
+  - step: 1
+    role: product_manager
+    action: define_requirements
+    next: [2]
+  - step: 2
+    role: analyst
+    action: system_analysis
+    next: [3]
+  - step: 3
+    role: evaluator
+    action: test_driven_evals
+    next: [4]
+  - step: 4
+    role: builder
+    action: code_generation
+    next: [5]
+  - step: 5
+    role: reviewer
+    action: red_team_audit
+    next: [6]
